@@ -1,0 +1,27 @@
+{% extends "base" %}
+
+{% block main %}
+
+{% paginate craft.entries.section('Articles').limit(5) as entries %}
+{% for entry in entries %}
+
+{% include "article" %}
+
+{% endfor %}
+<nav>
+    
+    {% if paginate.nextUrl %}
+
+
+        <a href="{{ paginate.nextUrl }}" class="left"><span class="icon">&#59237;</span> Older items</a>
+    {% endif %}
+    
+    {% if paginate.prevUrl %}
+        <a href="{{ paginate.prevUrl }}" class="right">Newer items <span class="icon">&#59238;</span></a>
+    {% endif %}
+<hr class="nothing">
+</nav>
+{% endpaginate %}
+
+
+{% endblock %}

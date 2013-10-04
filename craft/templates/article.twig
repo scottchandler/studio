@@ -1,0 +1,128 @@
+<article class="{{ entry.type }}">
+
+{% if entry.mainlink | length %}
+	<h1><span class="icon">&#128279;</span><a href="{{ entry.mainlink }}" title="{{ entry.mainlink }}">{{ entry.title }}</a></h1>
+	
+{% else %}
+
+	<h1><a href="{{ entry.url }}">{{ entry.title }}</a></h1>
+		
+		<p>Filed under {% for option in entry.category %}{% spaceless %}
+			<a href="{{ siteUrl }}/archive/{{ option }}">{{ option.label }}</a>
+        {% endspaceless %}{% endfor %} on {{ entry.postDate|date("Y/m/d") }}</p>
+        
+		{% if entry.mainimage | length %}
+
+		{% for link in entry.mainimage %}
+		<div class="mainmedia">
+		<img alt="{{ link.assettitle }}"
+         src="{{ link.getUrl('retina') }}"
+         srcset="{{ link.getUrl('retina') }} 2x, {{ link.getUrl('default') }} 1x">
+
+		</div>
+		{% endfor %}
+		
+		{% elseif entry.mainvideo | length %}
+		
+		<div class="mainmedia">
+		
+		{% for link in entry.mainvideoposter %}
+		
+		{% set videoratio = 800 / link.width %}
+		
+		{% set videoheight = videoratio * link.height %}
+		
+		{% set videoposter = link.url %}
+				
+			<div class="leanback-player-video">
+				<video width="800" height="{{ ceil(videoheight) }}" preload="metadata" controls >
+				{% for link in entry.mainvideo %}
+					<source src="{{ link.url }}" type="video/{{ link.extension }}">
+				{% endfor %}
+				</video>
+			</div>
+		{% endfor %}
+
+		</div>
+
+{% else %}
+
+<hr class="header">
+
+{% endif %}
+<section class="body">	
+		{{ entry.body }}
+</section>		
+		
+		{% if entry.images | length %}
+		<ul class="gallery">
+		
+		{% for link in entry.images %}
+		<li><a href="{{ link.url }}" target="_blank" title="{{ link.assettitle }}">
+				<img alt="{{ link.assettitle }}"
+         src="{{ link.getUrl('thumbnailretina') }}"
+         srcset="{{ link.getUrl('thumbnailretina') }} 2x, {{ link.getUrl('thumbnaildefault') }} 1x">
+		</a></li>
+		{% endfor %}
+						<hr class="nothing">
+		</ul>
+
+		
+		{% endif %}
+		
+		{% for link in entry.attachment %}
+		<span class="icon">&#128206;</span> <a href="{{ link.url }}">{{ link.filename }}</a> 
+		({{ link.size|filesize }})﻿
+		{% endfor %}
+		
+		{% if entry.relevantlink %}
+		<a class="relevantlink" href="{{ entry.relevantlink }}">{{ entry.relevantlink }}</a>
+		{% endif %}
+				
+		<hr>
+
+{% if entry.researchtopics | length%}
+<p>Research topics: 
+{% for tag in entry.researchtopics %}
+    <a href="{{ siteUrl }}/archive/{{ tag }}">{{ tag }}</a>{% if not loop.last %}, {% endif %}
+{% endfor %}﻿.
+
+{% elseif entry.processes | length%}
+Processes: 
+{% for tag in entry.processes %}
+    <a href="{{ siteUrl }}/archive/{{ tag }}">{{ tag }}</a>{% if not loop.last %}, {% endif %}
+{% endfor %}﻿.</p>
+
+{% elseif entry.activities | length%}
+Activities: 
+{% for tag in entry.activities %}
+    <a href="{{ siteUrl }}/archive/{{ tag }}">{{ tag }}</a>{% if not loop.last %}, {% endif %}
+{% endfor %}﻿.
+
+{% endif %}
+
+{% if entry.relevantentries | length %}
+
+<br>Related items:
+{% for link in entry.relevantentries %}
+<a href="{{ link.url }}">{{ link.title }}</a>{% if not loop.last %}, {% endif %}
+{% endfor %}.
+
+
+{% endif %}
+
+{% if entry.relatedprojects | length %}
+
+<br>Related projects: 
+    {% for option in entry.relatedprojects %}
+        <a href="{{ option }}">{{ option.label }}</a>{% if not loop.last %}, {% endif %}
+{% endfor %}.
+
+
+
+{% endif %}
+</p>
+
+<div class="g-plusone" data-annotation="none" data-width="300" data-href="{{ entry.url }}"></div>	
+{% endif %}
+	</article>

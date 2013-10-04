@@ -1,0 +1,114 @@
+<!doctype html>
+
+<!--[if lt IE 7 ]> <html class="ie ie6 ie-lt10 ie-lt9 ie-lt8 ie-lt7 no-js" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie ie7 ie-lt10 ie-lt9 ie-lt8 no-js" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie ie8 ie-lt10 ie-lt9 no-js" lang="en"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie ie9 ie-lt10 no-js" lang="en"> <![endif]-->
+<!--[if gt IE 9]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<!-- the "no-js" class is for Modernizr. --> 
+
+<head>
+
+	<meta charset="utf-8">
+	
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	
+	<title>{% block title %}{{ siteName }}{% endblock %}</title>
+	
+	<meta name="title" content="{{ block('title') }}" />
+	<meta name="description" content="{% block description %}{{ siteinfo.sitedescription }}{% endblock %}" />
+	<meta name="author" content="{{ siteinfo.siteauthor }}" />
+	<meta name="Copyright" content="{{ "now"|date("Y") }} {{ siteinfo.siteauthor }}" />
+		
+	<meta name="google-site-verification" content="" />
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<link rel="shortcut icon" href="{{ siteUrl }}/resources/favicon.ico" />
+		 
+	<link rel="apple-touch-icon" href="{{ siteUrl }}/resources/apple-touch-icon-precomposed.png" />
+		
+	<link rel="stylesheet" href="{{ siteUrl }}/leanback/leanbackPlayer.vim.css"/>
+		
+	<link rel="stylesheet" href="{{ siteUrl }}/style.css" />
+	
+	<script  src="{{ siteUrl }}/leanback/leanbackPlayer.js"></script>
+	<script  src="{{ siteUrl }}/leanback/leanbackPlayer.en.js"></script>
+	
+	<script src="_/js/modernizr-2.6.2.dev.js"></script>
+	
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:site" content="{{ siteinfo.twitteruser }}">
+	<meta name="twitter:title" content="{{ siteinfo.siteauthor }}">
+	<meta name="twitter:description" content="{{ block('description') }}">
+	<meta name="twitter:image" content="{% block image %}{% endblock %}">
+	<meta name="twitter:url" content="">
+
+	<meta property="og:title" content="{{ block('title') }}" />
+	<meta property="og:description" content="{{ block('description') }}" />
+	<meta property="og:url" content="{% block url %}{{ siteUrl }}{% endblock %}" />
+	<meta property="og:image" content="{{ block('image') }}" />
+
+</head>
+
+<body>
+
+	<div class="wrapper">
+		<aside>
+			<p><a href="{{ siteUrl }}">{{ siteName }}</a> is a site for the research, processes, and activities related to my art practice.</p>
+		</aside>
+	
+<section class="main">
+	{% block main %}
+	{% include "404" %}
+	{% endblock %}
+</section>	
+	
+<hr class="nothing">
+	
+	</div>
+
+<footer>
+	<div class="wrapper">
+		<div class="sitetools">
+			<ul>
+				<li><a href="{{ siteUrl }}feed"><span class="icon">&#59194;</span> RSS</a></li>
+				<li><a href="{{ siteUrl }}archive"><span class="icon">&#59392;</span> Archive</a></li>
+				<li><form action="{{ url('search') }}" ><span class="icon">&#128269;</span><input id="search" placeholder="Search" type="search" name="search"></input></form></li>
+				<li><a href="{{ siteUrl }}colophon"><span class="icon">&#59156;</span> Colophon</a></li>
+			</ul>
+		</div>
+
+		<div class="contact" id="contact">
+			<ul>
+				<li><a href="http://scottchandler.ca" title="My work"><span class="icon">&#127748;</span> scottchandler.ca</a></li>
+				<li><a href="mailto:scott@scottchandler.ca" title="E-Mail"><span class="icon">&#9993;</span> scott@scottchandler.ca</a></li> 
+				<li><a href="https://plus.google.com/110881688132908256910" title="Google+"><span class="icon social">&#62223;</span> +Scott Chandler</a></li>
+			</ul>
+		</div>
+<hr class="nothing">
+	</div>
+</footer>
+
+<script type="text/javascript">
+	(function() {
+    	var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+		po.src = 'https://apis.google.com/js/plusone.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+		})();
+</script>
+
+<script type="text/javascript">
+	LBP.options = {
+		defaultControls: ["Play", "Pause", "Progress", "Timer"],
+		controlsExtra: ["Poster", "BigPlay"],
+		hideControlsTimeout: 5,
+		defaultVolume: 10,
+		defaultTimerFormat: "PASSED_REMAINING",
+		logo: "",
+		focusFirstOnInit: false,
+		}
+</script>
+  
+</body>
+</html>

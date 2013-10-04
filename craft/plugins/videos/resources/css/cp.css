@@ -1,0 +1,785 @@
+@import "../lib/fontello/css/fontello.css";
+/**
+ * Craft Videos by Dukt
+ *
+ * @package   Craft Videos
+ * @author    Benjamin David
+ * @copyright Copyright (c) 2013, Dukt
+ * @license   http://docs.dukt.net/craft/videos/license
+ * @link      http://dukt.net/craft/videos
+ */
+/**
+ * Craft Videos by Dukt
+ *
+ * @package   Craft Videos
+ * @author    Benjamin David
+ * @copyright Copyright (c) 2013, Dukt
+ * @license   http://docs.dukt.net/craft/videos/license
+ * @link      http://dukt.net/craft/videos
+ */
+/**
+ * Videos Plugin Assets
+ *
+ * @package   Videos Plugin
+ * @author    Benjamin David
+ * @copyright Copyright (c) 2013, Dukt
+ * @license   http://dukt.net/
+ * @link      http://dukt.net/
+ */
+/**
+ * Videos Plugin Assets
+ *
+ * @package   Videos Plugin
+ * @author    Benjamin David
+ * @copyright Copyright (c) 2013, Dukt
+ * @license   http://dukt.net/
+ * @link      http://dukt.net/
+ */
+.dkv-clear {
+  clear: both;
+}
+.dkv-hidden {
+  display: none !important;
+}
+.dkv-getStarted,
+.dkv-noServices {
+  display: none;
+  text-align: center;
+  padding: 3em;
+  color: #333;
+  font-style: italic;
+  font-size: 1.2em;
+}
+.dkv-modal {
+  font-size: 13px;
+  z-index: 2000000000 !important;
+}
+.dkv-modal ul {
+  padding: 0;
+  margin: 0;
+  -webkit-padding-start: 0;
+}
+.dkv-modal .dkv-box-spinner {
+  display: none;
+}
+.dkv-modal.dkv-loading {
+  height: 100px;
+  position: relative;
+}
+.dkv-modal.dkv-loading > * {
+  display: none;
+}
+.dkv-modal.dkv-loading > .dkv-box-spinner {
+  display: block;
+  position: relative;
+  left: 50%;
+  top: 30%;
+}
+.dkv-modal .dkv-top {
+  padding: 15px;
+  border-bottom: 1px solid #eeeeee;
+  height: 32px;
+}
+.dkv-modal .dkv-bottom {
+  border-top: 1px solid #eee;
+  text-align: right;
+  padding: 15px 20px;
+  height: 26px;
+}
+.dkv-modal .dkv-bottom .dkv-spinner {
+  float: left;
+  height: 27px;
+  position: relative;
+}
+.dkv-modal .dkv-bottom .dkv-favorite {
+  text-align: center;
+  white-space: nowrap;
+  display: none;
+  float: left;
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  margin: 0;
+  position: relative;
+}
+.dkv-modal .dkv-bottom .dkv-favorite i {
+  font-size: 24px;
+  margin-left: -7px;
+  color: #eeeeee;
+}
+.dkv-modal .dkv-bottom .dkv-favorite.dkv-on i {
+  color: #fcd057;
+}
+.dkv-modal .dkv-bottom .dkv-back {
+  position: relative;
+  padding-left: 25px !important;
+}
+.dkv-modal .dkv-bottom .dkv-back i {
+  position: absolute;
+  left: 0;
+  font-size: 18px;
+}
+.dkv-modal .dkv-bottom .dkv-buttons a {
+  margin-left: 4px;
+}
+.dkv-modal .dkv-sidebar {
+  width: 200px;
+  float: left;
+  border-right: 1px solid #eeeeee;
+}
+.dkv-modal .dkv-sidebar .dkv-sources {
+  position: relative;
+  z-index: 1;
+  line-height: 15px;
+}
+.dkv-modal .dkv-sidebar .dkv-sources:hover {
+  cursor: default;
+}
+.dkv-modal .dkv-sidebar .dkv-sources.open .dkv-dropdown {
+  opacity: .7;
+}
+.dkv-modal .dkv-sidebar .dkv-sources.open ul.dkv-list {
+  display: block;
+}
+.dkv-modal .dkv-sidebar .dkv-sources .dkv-icon-down-dir {
+  position: absolute;
+  z-index: 1;
+  top: 9px;
+  right: 8px;
+}
+.dkv-modal .dkv-sidebar .dkv-sources .dkv-dropdown {
+  background: #fff;
+}
+.dkv-modal .dkv-sidebar .dkv-sources .dkv-dropdown ul {
+  position: relative;
+  z-index: 2;
+}
+.dkv-modal .dkv-sidebar .dkv-sources .dkv-dropdown ul li {
+  display: none;
+}
+.dkv-modal .dkv-sidebar .dkv-sources ul.dkv-list {
+  display: none;
+  background: #fff;
+}
+.dkv-modal .dkv-sidebar .dkv-sources ul.dkv-list li:hover {
+  background: #eeeeee;
+}
+.dkv-modal .dkv-sidebar .dkv-sources ul.dkv-list .dkv-service-name {
+  border-top: 0;
+}
+.dkv-modal .dkv-sidebar .dkv-sources ul li.active {
+  display: block;
+}
+.dkv-modal .dkv-sidebar .dkv-sources ul li i {
+  display: block;
+  position: absolute;
+  background-color: #aaa;
+  width: 26px;
+  height: 31px;
+  border: 1px solid #777;
+  color: #fff;
+  line-height: 31px;
+  padding-left: 5px;
+}
+.dkv-modal .dkv-sidebar .dkv-sources ul li i.dkv-icon-Vimeo {
+  background-color: #09A6CF;
+  border-color: #038CB3;
+}
+.dkv-modal .dkv-sidebar .dkv-sources ul li i.dkv-icon-YouTube {
+  padding-left: 2px;
+  width: 29px;
+  font-size: 18px;
+  background-color: #E51D1D;
+  border-color: #BF1111;
+}
+.dkv-modal .dkv-sidebar .dkv-sources ul li .dkv-service-name {
+  padding: 8px;
+  padding-left: 40px;
+  border: 1px solid #aaaaaa;
+}
+.dkv-modal .dkv-sidebar h3 {
+  text-transform: uppercase;
+  font-size: 0.9em !important;
+  padding: 1em;
+  padding-left: 15px;
+  padding-bottom: 0.5em;
+  color: #555555;
+  opacity: .6;
+}
+.dkv-modal .dkv-sidebar ul li a {
+  display: block;
+  padding: 4px;
+  color: #555555;
+}
+.dkv-modal .dkv-sidebar ul li a:hover {
+  text-decoration: none;
+  color: #555555;
+}
+.dkv-modal .dkv-sidebar ul li a.active {
+  background: #555555;
+  color: #fff;
+}
+.dkv-modal .dkv-sidebar ul li a.active i {
+  color: #fff;
+}
+.dkv-modal .dkv-sidebar ul li a.active:hover {
+  text-decoration: none;
+  color: #fff;
+  cursor: default;
+}
+.dkv-modal .dkv-sidebar ul li ul li a {
+  padding-left: 12px;
+}
+.dkv-modal .dkv-sidebar ul li ul li a i {
+  font-size: 16px;
+  margin-right: 1px;
+}
+.dkv-modal .dkv-main {
+  margin-left: 201px;
+}
+.dkv-modal .dkv-main.dkv-full {
+  margin-left: 0;
+}
+.dkv-modal .dkv-main.dkv-full .dkv-bottom .dkv-spinner {
+  visibility: visible;
+}
+.dkv-modal .dkv-main .dkv-top .dkv-search {
+  margin-right: 40px;
+  position: relative;
+}
+.dkv-modal .dkv-main .dkv-top .dkv-search .dkv-icon {
+  font-size: 1.4em;
+  position: absolute;
+  top: 5px;
+  left: 2px;
+  color: #aaaaaa;
+}
+.dkv-modal .dkv-main .dkv-top .dkv-search .dkv-press-enter {
+  position: absolute;
+  top: 0;
+  right: 5px;
+  padding: 0.8em;
+  font-size: 0.9em;
+  color: #aaaaaa;
+}
+.dkv-modal .dkv-main .dkv-top .dkv-search input {
+  opacity: 1;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  padding: 8px;
+  padding-left: 27px !important;
+  font-size: 0.9em;
+  background: #fff;
+  border: 1px solid #aaaaaa;
+  width: 100%;
+}
+.dkv-modal .dkv-main .dkv-top .dkv-search input:focus {
+  opacity: 1;
+}
+.dkv-modal .dkv-main .dkv-top .dkv-search input::-webkit-input-placeholder {
+  /* WebKit browsers */
+  color: #aaaaaa;
+}
+.dkv-modal .dkv-main .dkv-top .dkv-search input:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: #aaaaaa;
+}
+.dkv-modal .dkv-main .dkv-top .dkv-search input::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: #aaaaaa;
+}
+.dkv-modal .dkv-main .dkv-top .dkv-search input:-ms-input-placeholder {
+  /* Internet Explorer 10+ */
+  color: #aaaaaa;
+}
+.dkv-modal .dkv-main .dkv-top .dkv-buttons {
+  float: right;
+}
+.dkv-modal .dkv-main .dkv-top .dkv-buttons .dkv-reload {
+  float: left;
+  display: block;
+  width: 32px;
+  height: 32px;
+  padding: 0 !important;
+  position: relative;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+.dkv-modal .dkv-main .dkv-top .dkv-buttons .dkv-reload i {
+  line-height: 1.87em;
+  margin-left: 4px;
+  font-size: 18px;
+}
+.dkv-modal .dkv-main .dkv-top .dkv-buttons .dkv-reload .dkv-spin {
+  display: none;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 7px;
+  left: 7px;
+}
+.dkv-modal .dkv-main .dkv-top .dkv-buttons .dkv-reload.dkv-loading i {
+  display: none;
+}
+.dkv-modal .dkv-main .dkv-top .dkv-buttons .dkv-reload.dkv-loading .dkv-spin {
+  display: block;
+}
+.dkv-modal .dkv-main .dkv-top .dkv-buttons .dkv-reload.dkv-loading:hover {
+  background-color: #eeeeee !important;
+  cursor: default;
+}
+.dkv-modal .dkv-main .dkv-top .dkv-spinner {
+  float: right;
+  display: none;
+}
+.dkv-modal .dkv-main .dkv-top .dkv-spinner.dkv-hidden {
+  display: none;
+}
+.dkv-modal .dkv-main .dkv-content {
+  position: relative;
+}
+.dkv-modal .dkv-main .dkv-content .dkv-video-more {
+  display: none;
+  padding: 15px 0;
+  text-align: center;
+}
+.dkv-modal .dkv-main .dkv-content .dkv-video-more .dkv-btn {
+  position: relative;
+  padding-left: 25px !important;
+}
+.dkv-modal .dkv-main .dkv-content .dkv-video-more .dkv-btn .dkv-spin2 {
+  display: none;
+}
+.dkv-modal .dkv-main .dkv-content .dkv-video-more .dkv-btn.dkv-loading .dkv-spin2 {
+  display: block;
+}
+.dkv-modal .dkv-main .dkv-content .dkv-video-more .dkv-btn.dkv-loading:hover {
+  background-color: #eeeeee !important;
+  color: #555555 !important;
+  cursor: default;
+}
+.dkv-modal .dkv-main .dkv-content .dkv-video-more .dkv-btn.dkv-loading:before {
+  display: none;
+}
+.dkv-modal .dkv-main .dkv-content .dkv-video-more .dkv-btn:before {
+  position: absolute;
+  top: -3px;
+  left: 7px;
+  content: "➕";
+  font-family: 'entypo';
+  font-size: 32px;
+  line-height: 1em;
+}
+.dkv-modal .dkv-main .dkv-content .dkv-empty {
+  display: none;
+  color: #555555;
+  position: absolute;
+  text-align: center;
+}
+.dkv-modal .dkv-main .dkv-content .dkv-empty i {
+  display: block;
+  font-size: 60px;
+}
+.dkv-modal .dkv-main .dkv-content .dkv-videos {
+  /* scrollbar */
+
+}
+.dkv-modal .dkv-main .dkv-content .dkv-videos::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 11px;
+  height: 11px;
+}
+.dkv-modal .dkv-main .dkv-content .dkv-videos::-webkit-scrollbar-thumb {
+  border: 2px solid #aaa;
+  /* should match background, can't be transparent */
+
+  background-color: #aaa;
+}
+.dkv-modal .dkv-main .dkv-content .dkv-videos ul {
+  float: left;
+}
+.dkv-modal .dkv-main .dkv-content .dkv-videos ul li {
+  float: left;
+  padding: 15px;
+  width: 174px;
+  display: block;
+  color: #555555;
+  border: 1px solid #eeeeee;
+  border-top: 0;
+  border-left: 0;
+}
+.dkv-modal .dkv-main .dkv-content .dkv-videos ul li:hover {
+  text-decoration: none;
+  background: #eeeeee;
+  cursor: default;
+}
+.dkv-modal .dkv-main .dkv-content .dkv-videos ul li.active {
+  color: #fff;
+  background: #555555;
+}
+.dkv-modal .dkv-main .dkv-content .dkv-videos ul li.active .dkv-title {
+  color: #fff !important;
+}
+.dkv-modal .dkv-main .dkv-content .dkv-videos ul li div.dkv-videos-thumb {
+  display: inline-block;
+  position: relative;
+  float: left;
+  overflow: hidden;
+  background: #000;
+  border-color: #aaa;
+  border-width: 0px;
+  -moz-border-radius: 1%;
+  -webkit-border-radius: 0%;
+  border-radius: 0%;
+  border-style: solid;
+}
+.dkv-modal .dkv-main .dkv-content .dkv-videos ul li div.dkv-videos-thumb .dkv-play {
+  opacity: .4;
+  position: absolute;
+  top: 40px;
+  left: 80px;
+  width: 40px;
+  height: 40px;
+  background: #444;
+  border: 2px solid #fff;
+  -webkit-border-radius: 2em;
+  -moz-border-radius: 2em;
+  -ms-border-radius: 2em;
+  -o-border-radius: 2em;
+  border-radius: 2em;
+}
+.dkv-modal .dkv-main .dkv-content .dkv-videos ul li div.dkv-videos-thumb .dkv-play:hover {
+  opacity: .6;
+  cursor: pointer;
+  text-decoration: none;
+}
+.dkv-modal .dkv-main .dkv-content .dkv-videos ul li div.dkv-videos-thumb .dkv-play i {
+  font-size: 30px;
+  color: #fff;
+  line-height: 1.4em;
+}
+.dkv-modal .dkv-main .dkv-content .dkv-videos ul li div.dkv-videos-thumb .dkv-duration {
+  opacity: .7;
+  color: #fff;
+  background: #000;
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  padding: 0em 0.3em;
+  font-size: 0.85em;
+  line-height: 1.4em;
+  font-weight: bold;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+}
+.dkv-modal .dkv-main .dkv-content .dkv-videos ul li div.dkv-videos-thumb .dkv-clip-outer {
+  width: 180px;
+  height: 105px;
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+}
+.dkv-modal .dkv-main .dkv-content .dkv-videos ul li div.dkv-videos-thumb .dkv-clip-outer .dkv-clip {
+  display: block;
+  position: absolute;
+  bottom: -100px;
+  top: -100px;
+  left: -100px;
+  right: -100px;
+  text-align: center;
+  white-space: nowrap;
+  word-break: normal;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  background: transparent;
+}
+.dkv-modal .dkv-main .dkv-content .dkv-videos ul li div.dkv-videos-thumb .dkv-clip-outer .dkv-clip .dkv-clip-inner {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.dkv-modal .dkv-main .dkv-content .dkv-videos ul li div.dkv-videos-thumb .dkv-clip-outer .dkv-clip .dkv-clip-inner img {
+  width: 204px;
+  display: inline-block;
+  vertical-align: middle;
+  border: 0;
+  outline: none;
+}
+.dkv-modal .dkv-main .dkv-content .dkv-videos ul li div.dkv-videos-thumb .dkv-clip-outer .dkv-clip .dkv-clip-inner .dkv-vertical-align {
+  height: 100%;
+  display: inline-block;
+  vertical-align: middle;
+}
+.dkv-modal .dkv-main .dkv-content .dkv-videos ul li .dkv-title {
+  opacity: .9;
+  clear: left;
+  margin: 0 !important;
+  padding: 0 0 !important;
+  padding-top: 10px !important;
+  font-size: 1em !important;
+  line-height: 1.4em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+  -webkit-margin-start: 0;
+  -webkit-margin-end: 0;
+}
+.dkv-modal .dkv-main .dkv-content .dkv-videos ul li .dkv-subtitle {
+  opacity: .5;
+  font-size: 0.85em;
+  margin: 0 !important;
+  padding: 0 0 !important;
+  padding-bottom: 0 !important;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.dkv-modal .dkv-main .dkv-content .dkv-videos ul li .dkv-subtitle .dkv-author {
+  font-weight: bold;
+}
+.dkv-modal .dkv-btn,
+.dkv-field .dkv-btn {
+  display: inline-block;
+  background-color: #eeeeee;
+  color: #555555 !important;
+  margin: 0;
+  padding: 0 9px !important;
+  font-size: 1em !important;
+  line-height: 2em !important;
+  white-space: nowrap;
+  border: 0px solid #9a9a9a;
+  text-decoration: none;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+}
+.dkv-modal .dkv-btn:hover,
+.dkv-field .dkv-btn:hover {
+  text-decoration: none;
+  cursor: pointer;
+  color: #eeeeee !important;
+  background-color: #555555 !important;
+}
+.dkv-modal .dkv-btn:hover:before,
+.dkv-field .dkv-btn:hover:before {
+  color: #eeeeee !important;
+}
+.dkv-modal .dkv-btn.dkv-submit,
+.dkv-field .dkv-btn.dkv-submit {
+  color: #fff !important;
+  background: #da5a47;
+}
+.dkv-modal .dkv-btn.dkv-submit.dkv-disabled,
+.dkv-field .dkv-btn.dkv-submit.dkv-disabled {
+  opacity: .3;
+}
+.dkv-modal .dkv-btn.dkv-submit.dkv-disabled:hover,
+.dkv-field .dkv-btn.dkv-submit.dkv-disabled:hover {
+  background: #da5a47 !important;
+  cursor: default;
+}
+.dkv-field .dkv-btn {
+  background: #eeeeee;
+}
+.dkv-spinner {
+  display: inline-block;
+  vertical-align: bottom;
+  width: 20px;
+  height: 31px;
+}
+.dkv-overlay {
+  display: none;
+  width: 200px;
+  height: 200px;
+  background: #fff;
+  opacity: .9;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: fixed;
+  z-index: 2000;
+}
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  .dkv-videos ul li {
+    width: 181px !important;
+  }
+}
+/**
+ * Craft Videos by Dukt
+ *
+ * @package   Craft Videos
+ * @author    Benjamin David
+ * @copyright Copyright (c) 2013, Dukt
+ * @license   http://docs.dukt.net/craft/videos/license
+ * @link      http://dukt.net/craft/videos
+ */
+.dkv-sidebar {
+  color: #6C8390;
+}
+.dkv-sidebar ul li h3 {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+.dkv-sidebar ul li a {
+  color: #6C8390;
+}
+.dkv-sidebar ul li a:hover {
+  color: #6C8390;
+  cursor: default;
+}
+.dkv-sidebar ul li a.active {
+  background: #8195A0;
+}
+.dkv-search {
+  float: none !important;
+}
+.dkv-search input {
+  padding-top: 5px !important;
+  padding-right: 5px !important;
+  padding-bottom: 5px !important;
+}
+/**
+ * Videos Plugin Assets
+ *
+ * @package   Videos Plugin
+ * @author    Benjamin David
+ * @copyright Copyright (c) 2013, Dukt
+ * @license   http://dukt.net/
+ * @link      http://dukt.net/
+ */
+table.data {
+  width: 100%;
+  border-spacing: 0;
+}
+table.data th {
+  text-align: left;
+}
+table.data th,
+table.data td {
+  border-bottom: 1px dotted #ccc;
+  vertical-align: middle;
+  padding: 0.6em 0;
+}
+table.data td.col-actions {
+  /* 		text-align: right; */
+
+}
+.dkv-btn {
+  background: #B8C4CB;
+  padding: 5px 9px;
+  display: inline-block;
+  border: 0px solid #ddd;
+  border-radius: 2px;
+  -webkit-appearance: none;
+  -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0px 0 rgba(0, 0, 0, 0.05);
+  color: #fff !important;
+  line-height: 1em;
+}
+.dkv-btn:hover {
+  text-decoration: none !important;
+}
+.dkv-btn.small {
+  font-size: 0.9em;
+}
+.status {
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 5px;
+}
+.status:before {
+  content: "●";
+  color: #a1a4a6;
+  font-family: 'entypo';
+  font-size: 25px;
+  line-height: 0.5em;
+}
+.status.on:before {
+  color: #00AB35;
+}
+.status.off:before {
+  color: #CD100F;
+}
+input.readonly {
+  background: #fafafa;
+}
+input.readonly:focus {
+  border-color: #ccc;
+  outline: none;
+  webkit-box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0.1), 0 0 0px #6eb1db;
+  box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0.1), 0 0 0px #6eb1db;
+}
+.field.dv-hide {
+  display: none;
+}
+.dkv-modal {
+  margin: -15px;
+}
+.dkv-modal .dkv-sidebar > .dkv-bottom,
+.dkv-modal .dkv-main > .dkv-bottom {
+  display: none;
+}
+.dkv-modal .dkv-sidebar {
+  padding-bottom: 15px;
+}
+.dkv-modal .dkv-btn.dkv-cancel,
+.dkv-modal .dkv-btn.dkv-submit {
+  display: none;
+}
+.dkv-player {
+  display: none;
+  z-index: 20000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  width: 800px;
+  -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+}
+.dkv-player .dkv-embed {
+  height: 450px;
+}
+.dkv-player .dkv-bottom {
+  background: #fff;
+}
+.dkv-player iframe,
+.dkv-player object {
+  width: 100%;
+  height: 100%;
+}
+.dkv-settings-btn {
+  display: none;
+}
+h2.edit .dkv-settings-btn {
+  display: inline;
+  color: #fff;
+  font-size: 0.9em;
+  margin-left: 0.3em;
+  opacity: .7;
+  text-shadow: 0px 0px 0px #000000;
+  filter: dropshadow(color=#000000, offx=0, offy=0);
+}
+h2.edit .dkv-settings-btn span {
+  text-decoration: underline;
+}
+.dkv-modal {
+  margin: -30px;
+}
+.status:before {
+  display: none !important;
+}

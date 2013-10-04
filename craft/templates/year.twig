@@ -1,0 +1,30 @@
+{% extends "base" %}
+
+{% set params = { section: 'articles', before: year+1, after: year} %}
+
+{% block main %}
+
+<article class="year">
+
+<h1>{{ craft.entries.total(params) }} {{ 'Item'|pluralize(craft.entries.total(params)) }} from {{ year }}</h1>
+
+    <div class="mainmedia">
+</div>
+
+<ul class="archive">
+{% for entry in craft.entries.find(params) %}
+
+{% include "archivelist" %}
+    
+{% endfor %}
+</ul>
+
+
+</article>
+
+<nav>
+<a href="./" class="left"><span class="icon">&#59237;</span> Archive</a>
+<hr class="nothing">
+</nav>
+
+{% endblock %}

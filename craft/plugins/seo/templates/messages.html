@@ -1,0 +1,36 @@
+{% extends "seo/_layout" %}
+
+{% set selectedTab = 'messages' %}
+
+{% set service = craft.seo.getServiceByProviderClass('Google') %}
+{% set provider = craft.seo.getProvider('Google') %}
+
+{% set content %}
+
+    {% if provider is not null %}
+
+        <table class="data">
+            <thead>
+                <th scope="col">{{ "Subject"|t }}</th>
+                <th scope="col">{{ "Message"|t }}</th>
+            </thead>
+            <tbody>
+                {% for message in provider.getMessages(service.site) %}
+
+                    <tr>
+                        <td>{{message['wt$subject']['subject']}}</td>
+                        <td>{{message['wt$body']['body'] |raw}}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <p>
+            <a href="https://www.google.com/webmasters/tools/site-message-list?siteUrl={{service.site}}" class="btn submit">Messages on Google Webmaster Tools</a>
+        </p>
+
+    {% else %}
+        {% include 'seo/_configureMessage' %}
+    {% endif %}
+
+{% endset %}

@@ -1,0 +1,38 @@
+{% extends "seo/_layout" %}
+
+{% set selectedTab = 'sitemaps' %}
+
+{% set service = craft.seo.getServiceByProviderClass('Google') %}
+{% set provider = craft.seo.getProvider('Google') %}
+
+{% set content %}
+
+    {% if provider is not null %}
+
+        <table class="data">
+            <thead>
+                <th scope="col">{{ "Url"|t }}</th>
+                <th scope="col">{{ "Last downloaded"|t }}</th>
+                <th scope="col">{{ "URL Count"|t }}</th>
+            </thead>
+            <tbody>
+                {% for sitemap in provider.getSitemaps(service.site) %}
+
+                    <tr>
+                        <td>{{sitemap.title['$t']}}</td>
+                        <td>{{sitemap['wt$sitemap-last-downloaded']['$t']}}</td>
+                        <td>{{sitemap['wt$sitemap-url-count']['$t']}}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <p>
+            <a href="https://www.google.com/webmasters/tools/sitemap-list?siteUrl={{service.site}}" class="btn submit">Sitemaps on Google Webmaster Tools</a>
+        </p>
+
+    {% else %}
+        {% include 'seo/_configureMessage' %}
+    {% endif %}
+
+{% endset %}

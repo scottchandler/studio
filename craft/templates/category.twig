@@ -1,0 +1,47 @@
+{% extends "base" %}
+
+{% set categoryterm = craft.request.lastSegment %}
+
+{% block description %}
+{% spaceless %}
+
+{% endspaceless %}
+{% endblock %}
+
+{% block title %}
+{% spaceless %}
+
+{% endspaceless %}
+{% endblock %}
+
+{% block url %}
+{% spaceless %}
+
+{% endspaceless %}
+{% endblock %}
+
+
+{% block main %}
+
+<article>
+
+<h1>{{ categoryterm|title }} items </h1>
+
+<div class="mainmedia">
+</div>
+
+
+
+<ul class="archive">
+    {% for entry in craft.entries.search('category:{categoryterm}').find() %}
+       <li><a href="{{ entry.url }}">{{ entry.title }}</a>
+        {% if entry.description !='' %}<p>{{ entry.description }}</p>{% endif %}</li>
+    {% endfor %}
+</ul>
+
+<h2><a href="{{ siteUrl }}/archive">View the entire archive</a></h2>
+
+
+</article>
+
+{% endblock %}

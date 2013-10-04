@@ -1,0 +1,39 @@
+{% extends "base" %}
+
+{% set tag = craft.tags.search('name:'~tag).first() %}
+
+{% set entries = craft.entries.parentOf(tag).find() %}
+
+{% set total = craft.entries.parentOf(tag).total() %}
+
+{% block main %}
+
+<article class="tag">
+
+{% if tag %}
+    <h1>{{ total }} {{ 'Item'|pluralize(total) }} referencing {{ tag }}</h1>
+    <div class="mainmedia">
+</div>
+    <ul class="archive">
+    
+    {% for entry in entries %}
+    
+{% include "archivelist" %}
+
+{% endfor %}
+    </ul>
+
+{% else %}
+
+Sorry, nothing here.
+
+{% endif %}﻿
+
+</article>
+
+<nav>
+<a href="./" class="left"><span class="icon">&#59237;</span> Archive</a>
+<hr class="nothing">
+</nav>
+
+{% endblock %}

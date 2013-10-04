@@ -1,0 +1,38 @@
+{% extends "seo/_layout" %}
+
+{% set selectedTab = 'crawlissues' %}
+
+{% set service = craft.seo.getServiceByProviderClass('Google') %}
+{% set provider = craft.seo.getProvider('Google') %}
+
+{% set content %}
+
+    {% if provider is not null %}
+
+        <table class="data">
+            <thead>
+                <th scope="col">{{ "URL"|t }}</th>
+                <th scope="col">{{ "Code"|t }}</th>
+                <th scope="col">{{ "Date"|t }}</th>
+            </thead>
+            <tbody>
+                {% for issue in provider.getCrawlIssues(service.site) %}
+
+                    <tr>
+                        <td>{{issue['wt$url']['$t']}}</td>
+                        <td>{{issue['wt$detail']['$t']}}</td>
+                        <td>{{issue['wt$date-detected']['$t']}}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <p>
+            <a href="https://www.google.com/webmasters/tools/crawl-errors?siteUrl={{service.site}}" class="btn submit">Crawl Issues on Google Webmaster Tools</a>
+        </p>
+
+    {% else %}
+        {% include 'seo/_configureMessage' %}
+    {% endif %}
+
+{% endset %}

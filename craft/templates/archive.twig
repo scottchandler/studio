@@ -1,0 +1,120 @@
+{% extends "base" %}
+
+{% set thisYear 		= now.year %}
+{% set activeYear 		= year|default(thisYear) %}
+{% set nextYear 		= activeYear + 1 %}
+{% set firstEntry 		= craft.entries.section('articles').status('Live').order('postDate asc').first() %}
+{% set firstYear 		= firstEntry.postDate|date("Y") %}
+
+{% block description %}
+{% spaceless %}
+{{ archive.description }}
+{% endspaceless %}
+{% endblock %}
+
+{% block title %}
+{% spaceless %}
+Archive
+{% endspaceless %}
+{% endblock %}
+
+{% block main %}
+<article class="page noimage">
+
+{% if craft.request.lastSegment == 'archive' %}
+
+<h1>Archive</h1>
+
+
+<hr class="nothing">
+
+<h2>Items by year:</h2>
+<ul class="years">
+	{% for year in thisYear..firstYear %}
+
+			{% set total = craft.entries.after(year).before(year+1).total %}
+			{% if total %}
+				<li><a href="{{ url('archive/'~year) }}">{{ year }}</a> ({{ total }} {{ 'item'|pluralize(total) }})</li>
+			{% endif %}
+		{% if loop.last %}
+
+		</ul>
+		
+		{% endif %}
+	{% endfor %}
+
+
+<h2>Research topics:</h2>
+
+<ul class="tags">
+{% for tag in craft.tags.set('researchtopics').find({ order: 'name asc'}) %}
+    <li><a href="{{ siteUrl }}archive/{{ tag.name | url_encode | lower }}" title="See all items referencing {{ tag.name|lower }}">{{ tag.name }}</a></li>
+{% endfor %}
+<hr class="nothing">
+</ul>
+
+
+<h2>Processes:</h2>
+
+<ul class="tags">
+{% for tag in craft.tags.set('processes').find({ order: 'name asc'}) %}
+    <li><a href="{{ siteUrl }}archive/{{ tag.name | url_encode | lower }}" title="See all items referencing {{ tag.name|lower }}">{{ tag.name }}</a></li>
+{% endfor %}
+<hr class="nothing">
+</ul>
+
+<h2>Activities:</h2>
+
+<ul class="tags">
+{% for tag in craft.tags.set('activities').find({ order: 'name asc'}) %}
+    <li><a href="{{ siteUrl }}archive/{{ tag.name | url_encode | lower }}" title="See all items referencing {{ tag.name|lower }}">{{ tag.name }}</a></li>
+{% endfor %}
+<hr class="nothing">
+</ul>
+
+<h2>Writers, film makers, musicians, artists:</h2>
+
+<ul class="tags">
+{% for tag in craft.tags.set('artists').find({ order: 'name asc'}) %}
+    <li><a href="{{ siteUrl }}archive/{{ tag.name | url_encode | lower }}" title="See all items regarding works by {{ tag.name }}">{{ tag.name }}</a></li>
+{% endfor %}
+<hr class="nothing">
+</ul>
+
+
+<h2>Random entry:</h2>
+
+<ul class="archive">
+
+{% for entry in craft.entries.order('RAND()').find({limit:'1'}) %}
+
+{% include "archivelist" %}
+    
+{% endfor %}
+</ul>
+
+{% elseif craft.request.lastSegment == 'all' %}
+
+<h1>All {{ craft.entries.total() }} items on scottchandler.ca/studio</h1>
+<ul class="archive">
+
+{% for entry in craft.entries.find({section: 'Articles',}) %}
+
+{% include "archivelist" %}
+
+{% endfor %}
+
+</ul>
+
+
+
+
+
+
+
+
+
+{% endif %}
+
+</article>
+{% endblock %}

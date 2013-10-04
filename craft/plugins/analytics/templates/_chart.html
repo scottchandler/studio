@@ -1,0 +1,30 @@
+{% if half is not defined %}
+    {% set half = false %}
+{% endif %}
+
+{% if title is not defined %}
+    {% set title = "Default Title" %}
+{% endif %}
+
+{% if type is not defined %}
+    {% set type = "line" %}
+{% endif %}
+
+{% include 'analytics/_chartElement' with {
+    half:half,
+    chart: {
+        chartQuery: {
+            param1 : 'ga:' ~ profileId,
+            param2 : now|date_modify("-1 month")|date("Y-m-d"),
+            param3 : now|date("Y-m-d"),
+            param4 : 'ga:visits',
+            param5 : {
+                'dimensions' : dimensions
+            }
+        },
+        chartOptions: {
+            title: title,
+            chartType:type
+        }
+    }
+} %}

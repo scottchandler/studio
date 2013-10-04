@@ -1,0 +1,41 @@
+{% extends "base" %}
+
+{% block description %}
+{% spaceless %}
+{{ entry.description }}
+{% endspaceless %}
+{% endblock %}
+
+{% block title %}
+{% spaceless %}
+{{ entry.title }}
+{% endspaceless %}
+{% endblock %}
+
+{% block url %}
+{% spaceless %}
+{{ entry.url }}
+{% endspaceless %}
+{% endblock %}
+
+{% block image %}
+{% spaceless %}
+{% if entry.articletype == "video" %}
+
+{% for link in entry.mainvideoposter %}
+		{{ link.getUrl('opengraph') }}
+		{% endfor %}
+{% else %}
+{% for link in entry.mainimage %}
+		{{ link.getUrl('opengraph') }}
+		{% endfor %}
+
+{% endif %}
+{% endspaceless %}
+{% endblock %}
+
+{% block main %}
+
+{% include "article" %}
+
+{% endblock %}

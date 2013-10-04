@@ -1,0 +1,54 @@
+
+	<li>
+	
+{# Link Posts #}	
+	
+	{% if entry.mainlink|length %}
+		<a href="{{ entry.mainlink }}">
+       		<div>
+	   			<span class="icon">&#128279;</span>
+	   		</div>
+	   		<h2>{{ entry.title }}</h2>
+	   	</a>
+	   	
+{# Photo Posts #}	   	
+	   	
+       {% elseif entry.mainimage|length %}
+       <a href="{{ entry.url }}">
+	       <div>
+       {% for link in entry.mainimage %}
+       	<img alt="{{ link.assettitle }}"
+         src="{{ link.getUrl('archiveretina') }}"
+         srcset="{{ link.getUrl('archiveretina') }} 2x, {{ link.getUrl('archivedefault') }} 1x">
+       
+       {% endfor %}
+	       </div>
+       <h2>{{ entry.title }}</h2>
+        {% if entry.description !='' %}<p>{{ entry.description }}</p>{% endif %}
+        </a>
+
+{# Video Posts #}
+       
+       {% elseif entry.mainvideoposter|length %}
+       <a href="{{ entry.url }}">
+       <div>
+	   {% for link in entry.mainvideoposter %}
+	          	<img alt="{{ link.assettitle }}"
+         src="{{ link.getUrl('archiveretina') }}"
+         srcset="{{ link.getUrl('archiveretina') }} 2x, {{ link.getUrl('archivedefault') }} 1x">{% endfor %}
+	   </div>
+	   <h2>{{ entry.title }}</h2>
+        {% if entry.description !='' %}<p>{{ entry.description }}</p>{% endif %}</a>
+        
+{# Other Types of Posts #}        
+        
+	   {% else %}
+	<a href="{{ entry.url }}">
+	<div>
+       <span class="icon">&#59190;</span>
+	</div>
+    <h2>{{ entry.title }}</h2>
+        {% if entry.description !='' %}<p>{{ entry.description }}</p>{% endif %}</a>
+	   	{% endif %}	
+        <hr class="nothing">
+	   	   </li>

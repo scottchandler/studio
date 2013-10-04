@@ -1,0 +1,35 @@
+
+/**
+ * Craft Videos by Dukt
+ *
+ * @package   Craft Videos
+ * @author    Benjamin David
+ * @copyright Copyright (c) 2013, Dukt
+ * @license   http://docs.dukt.net/craft/videos/license
+ * @link      http://dukt.net/craft/videos
+ */
+
+// --------------------------------------------------------------------
+
+@import "../lib/fontello/css/fontello.css";
+@import "_variables.less";
+@import "../lib/videos/css/common.less";
+@import "common.less";
+@import "../lib/videos/css/field.less";
+
+// --------------------------------------------------------------------
+
+.dkv-field {
+    max-width: 650px;
+
+    .dkv-buttons {
+        margin-top: 10px;
+    }
+
+    .dkv-embed {
+
+        iframe, object {
+            width: 100%;
+        }
+    }
+}

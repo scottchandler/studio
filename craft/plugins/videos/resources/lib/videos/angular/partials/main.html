@@ -1,0 +1,78 @@
+<div class="dkv-main">
+
+	<!-- top -->
+
+	<div class="dkv-top">
+	    <div class="dkv-spinner spinner"></div>
+
+	    <div class="dkv-buttons">
+			<a class="dkv-reload dkv-btn" ng-click="reload()"><i class="dkv-icon-cw-4"></i><span class="dkv-spin"></span></a>
+	    </div>
+
+
+
+		<div class="dkv-search">
+			<div class="dkv-icon dkv-icon-search-5"></div>
+			<div class="dkv-press-enter dkv-hidden">Press Enter</div>
+	        <input type="text" ng-model="searchQuery" ng-change="search()" class="text nicetext fullwidth" data-hint="{{'_search_videos_' | i18n}}" placeholder="{{'_search_videos_' | i18n}}">
+	    </div>
+
+	</div>
+
+	<!-- content -->
+
+	<div class="dkv-content">
+
+		<div class="dkv-empty">
+			<i class="dkv-icon-video-3"></i>
+			No videos
+		</div>
+
+		<div class="dkv-videos">
+			<ul>
+				<li ng-repeat="video in videos" ng-class="{active: isSelected(video)}" ng-click="select(video)">
+						<div class="dkv-videos-thumb">
+							<span class="dkv-clip-outer">
+								<span class="dkv-clip">
+									<span class="dkv-clip-inner">
+										<img ng-src="{{video.thumbnails[1]}}">
+										<span class="dkv-vertical-align"></span>
+									</span>
+								</span>
+							</span>
+							<a ng-click="play(video)" class="dkv-play"><i class="dkv-icon-play-2"></i></a>
+							<div class="dkv-duration">{{video.duration}}</div>
+						</div>
+
+						<h3 class="dkv-title">{{video.title}}</h3>
+
+						<p class="dkv-subtitle">
+							<span class="dkv-author">{{video.plays}} {{'_plays_' | i18n}}</span>
+							<!-- <span class="dkv-date">{{(video.date * 1000) | date:'MMM d, y'}}</span> -->
+						</p>
+
+						<div class="clear"></div>
+
+				</li>
+			</ul>
+
+			<div ng-view>Loading Angular...</div>
+
+			<p class="dkv-video-more"><a class="dkv-btn" ng-click="moreVideos()">{{'_load_more_' | i18n}}</a></p>
+		</div>
+	</div>
+
+
+	<!-- bottom -->
+
+    <div class="dkv-bottom">
+<!--         <span ng-click="favorite()" class="dkv-favorite" ng-class="{ 'dkv-on': isFavorite }">Favorite</span>
+        <div class="dkv-spinner"></div> -->
+
+	    <div class="dkv-buttons">
+			<a href="#" class="dkv-cancel dkv-btn">{{'_cancel_' | i18n}}</a>
+			<a href="#" class="dkv-btn dkv-submit dkv-disabled">{{'_add_video_' | i18n}}</a>
+        </div>
+    </div>
+
+</div>

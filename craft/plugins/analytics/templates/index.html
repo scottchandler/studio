@@ -1,0 +1,5 @@
+{% if craft.analytics.isConfigured %}
+    {% include 'analytics/_index' %}
+{% else %}
+    {% redirect 'analytics/settings' %}
+{% endif %}

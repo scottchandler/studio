@@ -1,0 +1,16 @@
+{% extends "_layouts/cp" %}
+
+{% set title = "SEO"|t %}
+
+{% set tabs = {
+    keywords: { label: "Keywords"|t, url: url('seo/keywords') },
+    sitemaps: { label: "Sitemaps"|t, url: url('seo/sitemaps') },
+    messages: { label: "Messages"|t, url: url('seo/messages') },
+    crawlissues: { label: "Crawl Issues"|t, url: url('seo/crawlissues') }
+} %}
+
+
+{% set extraPageHeaderHtml %}
+    <a class="btn settings icon" href="{{ url('seo/settings') }}" title="{{ 'Settings'|t }}"></a>
+{% endset %}
+

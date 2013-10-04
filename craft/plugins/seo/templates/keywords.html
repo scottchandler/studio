@@ -1,0 +1,34 @@
+{% extends "seo/_layout" %}
+
+{% set service = craft.seo.getServiceByProviderClass('Google') %}
+{% set provider = craft.seo.getProvider('Google') %}
+
+{% if provider is not null %}
+    {% set keywords = provider.getKeywords(service.site) %}
+{% endif %}
+
+{% set content %}
+    {% if keywords is defined %}
+        <table class="data">
+            <thead>
+                <th scope="col">{{ "Name"|t }}</th>
+                <th scope="col">{{ "Source"|t }}</th>
+            </thead>
+            <tbody>
+                {% for keyword in provider.getKeywords(service.site) %}
+                    <tr>
+                        <td>{{keyword['$t']}}</td>
+                        <td>{{keyword['source']}}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <p>
+            <a href="https://www.google.com/webmasters/tools/keywords?siteUrl={{service.site}}" class="btn submit">Keywords on Google Webmaster Tools</a>
+        </p>
+
+    {% else %}
+        {% include 'seo/_configureMessage' %}
+    {% endif %}
+{% endset %}

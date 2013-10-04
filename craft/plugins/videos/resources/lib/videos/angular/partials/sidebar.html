@@ -1,0 +1,53 @@
+<div class="dkv-sidebar">
+
+	<!-- toolbar -->
+
+	<div class="dkv-top">
+		<div class="dkv-sources"  click-anywhere-but-here="clickedSomewhereElse()">
+			<div class="dkv-dropdown">
+				<ul>
+					<li ng-repeat="(serviceKey, service) in services"
+						ng-click="serviceDropdown()"
+						ng-class="{active: isSourceSelected(service)}">
+							<i class="dkv-icon-{{serviceKey}}"></i><div class="dkv-service-name">{{service.name}}</div>
+					</li>
+				</ul>
+				<i class="dkv-icon-down-dir"></i>
+			</div>
+			<ul class="dkv-list">
+				<li ng-repeat="(serviceKey, service) in services"
+					ng-click="serviceChange(serviceKey)">
+						<i class="dkv-icon-{{serviceKey}}"></i><div class="dkv-service-name">{{service.name}}</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+
+	<!-- content -->
+
+	<div class="dkv-content">
+		<ul>
+			<!-- <li><a href="#/{{serviceKey}}/search" ng-class="getClass('search')">Explore</a></li> -->
+			<li>
+				<h3>{{'_library_' | i18n}}</h3>
+
+				<ul>
+					<li><a class="dkv-star" href="#/{{serviceKey}}/favorites" ng-class="getClass('favorites')"><i class="dkv-icon-star-5"></i>{{'_favorites_' | i18n}}</a></li>
+					<li><a class="dkv-upload" href="#/{{serviceKey}}/uploads" ng-class="getClass('uploads')"><i class="dkv-icon-up-bold"></i>{{'_my_uploads_' | i18n}}</a></li>
+				</ul>
+			</li>
+			<li>
+				<h3>{{'_playlists_' | i18n}}</h3>
+
+				<ul>
+					<li ng-repeat="playlist in currentService.playlists">
+						<a class="dkv-playlist" href="#/{{serviceKey}}/playlist/{{playlist.id}}/" ng-class="getClass(playlist.id)"><i class="dkv-icon-menu-1"></i>{{playlist.title}}</a>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+
+    <div class="dkv-bottom"></div>
+</div>

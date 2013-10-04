@@ -1,0 +1,92 @@
+{% extends "_layouts/cp" %}
+
+{% set title = "Directory"|t %}
+
+{% set content %}
+
+
+    <table id="sources" class="data collapsible">
+        <thead>
+            <th scope="col">{{ "Name"|t }}</th>
+            <th scope="col">{{ "Description"|t }}</th>
+            <th scope="col">{{ "Developer"|t }}</th>
+            <th scope="col">{{ "Status"|t }}</th>
+            <th scope="thin"></th>
+            <th scope="thin"></th>
+        </thead>
+        <tbody>
+            {% for key, plugin in craft.directory.plugins() %}
+                <tr>
+                    <th>
+                        {% if plugin.url is defined %}
+                            <a href="{{plugin.url}}">{{plugin.name}}</a>
+                        {% else %}
+                            {% if plugin.githubUser is defined and plugin.githubRepo is defined %}
+                                <a href="https://github.com/{{plugin.githubUser}}/{{plugin.githubRepo}}">{{plugin.name}}</a>
+                            {% else %}
+                                {{plugin.name}}
+                            {% endif %}
+                        {% endif %}
+                    </th>
+
+                    <td>
+                        {% if plugin.description is defined %}
+                            <em>{{plugin.description}}</em>
+                        {% endif %}
+                    </td>
+
+                    <td>
+                        {% if plugin.developer is defined %}
+                            {% if plugin.developerUrl is defined %}
+                                <a href="{{plugin.developerUrl}}">{{plugin.developer}}</a>
+                            {% else %}
+                                {{plugin.developer}}
+                            {% endif %}
+                        {% endif %}
+                    </td>
+
+                    <td>
+                        {% set pluginComponent = craft.plugins.getPlugin(plugin.class, false) %}
+
+                        {%if pluginComponent %}
+                            {% if pluginComponent.isInstalled() %}
+                                {% if pluginComponent.isEnabled() %}
+                                    <span class="status on"></span>Installed
+                                {% else %}
+                                    <span class="status off"></span>
+                                    Disabled
+                                {% endif %}
+                            {% else %}
+                                <span class="status"></span>
+                                Not Installed
+                            {% endif %}
+                        {% else %}
+                            <span class="status"></span>
+                            Not downloaded
+                        {% endif %}
+                    </td>
+
+                    <td>
+                        {%if pluginComponent %}
+                            <a class="btn small disabled">Download &amp; Install</a>
+                        {% else %}
+                            <a href="{{actionUrl('directory/plugin/download', {key:key})}}" class="btn small">Download &amp; Install</a>
+                        {% endif %}
+                    </td>
+
+                    <td>
+                        {%if pluginComponent %}
+                            {% if pluginComponent.isInstalled() %}
+                                <a href="{{actionUrl('directory/plugin/uninstall', {key:key})}}" class="btn small">Uninstall</a>
+                            {% else %}
+                                <a href="{{actionUrl('directory/plugin/install', {key:key})}}" class="btn small">Install</a>
+                            {% endif %}
+                        {% else %}
+                            <a class="btn small disabled">Install</a>
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endset %}

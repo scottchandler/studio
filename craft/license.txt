@@ -1,0 +1,6 @@
+Craft Beta License Agreement
+============================
+
+You may not distribute this software publicly by any means.
+
+You may install it on a public server, though we don't recommend you use it on a production website.

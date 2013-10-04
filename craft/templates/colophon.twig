@@ -1,0 +1,50 @@
+
+{% extends "base" %}
+
+{% block description %}
+{% if craft.request.firstSegment == 'colophon' %}
+{{ colophon.description }}
+{% endif %}
+{% endblock %}
+
+{% block title %}
+{% if craft.request.firstSegment == 'colophon' %}
+Colophon
+{% endif %}
+
+{% endblock %}
+
+
+{% block main %}
+
+
+<article class="page">
+
+
+
+
+
+
+<h1>Colophon</h1>
+
+Updated on {{ colophon.dateUpdated.format('Y/m/d') }}﻿
+
+<div class="mainmedia">
+{% for link in colophon.mainimage %}
+<img class="mainimage" src="{{ link.url }}">
+{% endfor %}
+</div>
+
+{{ colophon.body }}
+
+{#
+{% for entry in craft.entries.find({section: 'Articles', limit: '1', order: 'postDate desc'}) %}
+<p>scottchandler.ca/studio was last posted to on {{ entry.postDate|date("Y/m/d") }}.</p>
+{% endfor %}
+#}
+
+
+
+</article>
+
+{% endblock %}

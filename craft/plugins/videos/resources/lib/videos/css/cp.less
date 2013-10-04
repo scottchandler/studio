@@ -1,0 +1,146 @@
+/**
+ * Videos Plugin Assets
+ *
+ * @package   Videos Plugin
+ * @author    Benjamin David
+ * @copyright Copyright (c) 2013, Dukt
+ * @license   http://dukt.net/
+ * @link      http://dukt.net/
+ */
+
+// --------------------------------------------------------------------
+
+// basics
+
+table.data {
+    width: 100%;
+    border-spacing: 0;
+
+    th {
+        text-align: left;
+    }
+
+    th, td {
+        border-bottom: 1px dotted #ccc;
+        vertical-align: middle;
+        padding: 0.6em 0;
+    }
+
+	td.col-actions {
+/* 		text-align: right; */
+	}
+}
+
+.dkv-btn {
+    background: #B8C4CB;
+    padding: 5px 9px;
+    display: inline-block;
+    border: 0px solid #ddd;
+    border-radius: 2px;
+    -webkit-appearance: none;
+    -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
+    box-shadow: 0 0px 0 rgba(0, 0, 0, 0.05);
+    color: #fff !important;
+    line-height: 1em;
+
+    &:hover {
+        text-decoration: none !important;
+    }
+
+    &.small {
+        font-size: 0.9em;
+    }
+}
+
+.status {
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    margin-right: 5px;
+
+    &:before {
+        content: "●";
+        color: #a1a4a6;
+        font-family: 'entypo';
+        font-size: 25px;
+        line-height: 0.5em;
+    }
+
+    &.on:before {
+        color:#00AB35;
+    }
+
+    &.off:before {
+        color: #CD100F;
+    }
+}
+
+
+input.readonly {
+    background:#fafafa;
+
+    &:focus {
+
+        border-color: #ccc;
+        outline: none;
+        webkit-box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0.1), 0 0 0px #6eb1db;
+        box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0.1), 0 0 0px #6eb1db;
+
+    }
+}
+
+.field.dv-hide {
+    display: none;
+}
+
+// --------------------------------------------------------------------
+
+// modal
+
+.dkv-modal {
+    margin: -15px;
+
+    .dkv-sidebar, .dkv-main {
+        & > .dkv-bottom {
+            display: none;
+        }
+    }
+
+    .dkv-sidebar {
+        padding-bottom: 15px;
+    }
+
+    .dkv-btn.dkv-cancel, .dkv-btn.dkv-submit {
+        display: none;
+    }
+}
+
+// --------------------------------------------------------------------
+
+// player
+
+.dkv-player {
+    display:none;
+    z-index: 20000;
+    position: fixed;
+    top:0;
+    left:0;
+    background: #000;
+    width: 800px;
+
+    -webkit-box-shadow:  0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+    box-shadow:  0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+
+    .dkv-embed {
+        height: 450px;
+    }
+
+    .dkv-bottom {
+        background: #fff;
+    }
+
+    iframe, object {
+        width: 100%;
+        height: 100%;
+    }
+}

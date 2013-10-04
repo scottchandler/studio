@@ -1,0 +1,80 @@
+{% extends "_layouts/cp" %}
+{% import "_includes/forms" as forms %}
+
+{% set title = "Settings"|t %}
+
+{% set service = craft.seo.getServiceByProviderClass('Google') %}
+
+
+
+{% set crumbs = [
+    { label: "SEO"|t, url: url('seo') }
+] %}
+
+
+{% set content %}
+
+    {% set pro = craft.seo.getProvider('Google') %}
+
+    <h2>Connect to Google Webmaster Tools</h2>
+
+    <p>Authentication requires you to <a href="https://code.google.com/apis/console/">create an application with OAuth API access in your Google Console</a>, with the following infos :</p>
+
+    <ul>
+        <li><strong>Redirect URI :</strong> {{actionUrl('seo/settings/serviceCallback')}}</li>
+        <li><strong>Javascript Origins :</strong> {{url('')}}</li>
+    </ul>
+
+    <form method="post" accept-charset="UTF-8">
+
+        <input type="hidden" name="action" value="seo/settings/saveService">
+        <input type="hidden" name="service[providerClass]" value="Google">
+
+        {{ forms.textField({
+            label: 'Client Id'|t,
+            required: true,
+            name: 'service[clientId]',
+            value: service ? service.clientId : null,
+            errors: service ? service.errors('clientId') : null,
+            disabled: ((service.token is defined and service.token|length) > 0 ? true : false)
+        }) }}
+
+        {{ forms.textField({
+            label: 'Client Secret'|t,
+            required: true,
+            name: 'service[clientSecret]',
+            value: service ? service.clientSecret : null,
+            errors: service ? service.errors('clientSecret') : null,
+            disabled: (service.token is defined and service.token|length > 0 ? true : false)
+        }) }}
+
+        <div class="buttons">
+            {% if (service.token is defined and service.token|length == 0) or service.token is not defined %}
+            <input class="btn submit" type="submit" name="step1" value="{{ 'Connect'|t }}">
+            {% elseif service.id is defined %}
+                <a class="btn small" href="{{actionUrl('seo/settings/resetServiceToken', {id:service.id})}}">Reset Token</a>
+            {% endif %}
+        </div>
+
+
+
+        {% set selectOptions = [{ label: "-- Select --", value: NULL }] %}
+
+        {% set selectOptions = selectOptions|merge(craft.seo.getSitesOptions()) %}
+
+        {% if service.token %}
+            <h2>Choose the website you want to use</h2>
+
+            {{ forms.selectField({
+                label: 'Site URL'|t,
+                required: true,
+                name: 'service[site]',
+                options: selectOptions,
+                value: service ? service.site : null,
+            }) }}
+
+            <input class="btn submit" type="submit" name="step2" value="{{ 'Save'|t }}">
+        {% endif %}
+
+    </form>
+{% endset %}
